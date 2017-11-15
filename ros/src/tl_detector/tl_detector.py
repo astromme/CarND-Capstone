@@ -49,7 +49,9 @@ class TLDetector(object):
         self.last_wp = -1
         self.state_count = 0
 
-        rospy.spin()
+        rate = rospy.Rate(4)
+        while not rospy.is_shutdown():
+            rate.sleep()
 
     def pose_cb(self, msg):
         self.pose = msg
